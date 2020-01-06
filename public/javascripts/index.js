@@ -11,8 +11,9 @@ async function displayHamberders(){
         console.log(allHamberders)
         for(let i=0; i < allHamberders.length; i++){
             const {id, hamberder_name: hamberderName, devoured} = allHamberders[i]
+            console.log(devoured)
             if(devoured){
-                const hamberderHtml = `
+                const devouredHamberderHtml = `
                     <div class="hamberder ${id}">
                         ${id}: ${hamberderName}
                     </div>`
@@ -52,9 +53,14 @@ function startDevourBtns(){
     for(let i=0; i < devourBtnEls.length; i++){
         devourBtnEls[i].addEventListener("click", function(){
             const hamberderId = event.target.id;
-            console.log(`Devour Btn ${hamberderId} Clicked!`)
+            devourTheHamberder(hamberderId)
         })
     }
+}
+
+async function devourTheHamberder(hamberderId){
+    await axios.put(`/api/hamberder/${hamberderId}`)
+    await displayHamberders()
 }
     // const {id, hamberder_name: hamberderName} = createdHamberder;
     // console.log(id, hamberderName)
@@ -80,7 +86,7 @@ function startHamberderBtn(){
           }
         
         try {
-            const {data} = await axios.put('/api/hamberder',{hamberderName});
+            const {data} = await axios.post('/api/hamberder',{hamberderName});
             // console.log(response);
             displayHamberder(data);
           } catch (error) {
