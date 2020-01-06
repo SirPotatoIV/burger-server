@@ -7,6 +7,7 @@ async function displayHamberders(){
     try{
         let allTheHamberdersHtml = "";
         let allTheDevouredHambersHtml = "";
+        // how to rename during deconstruction https://wesbos.com/destructuring-renaming/
         const {data: allHamberders} = await axios.get("/api/hamberder")
         console.log(allHamberders)
         for(let i=0; i < allHamberders.length; i++){
@@ -88,7 +89,7 @@ function startHamberderBtn(){
         try {
             const {data} = await axios.post('/api/hamberder',{hamberderName});
             // console.log(response);
-            displayHamberder(data);
+            displayHamberders();
           } catch (error) {
             console.error(error);
           }
