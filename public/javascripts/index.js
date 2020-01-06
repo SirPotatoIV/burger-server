@@ -41,7 +41,7 @@ async function displayHamberders(){
         console.log("Error starting event listeners for devour btns: ", err)
     }
 }
-displayHamberders();
+// displayHamberders();
 
 async function createHamberder(){
     await startHamberderBtn();
@@ -63,17 +63,6 @@ async function devourTheHamberder(hamberderId){
     await axios.put(`/api/hamberder/${hamberderId}`)
     await displayHamberders()
 }
-    // const {id, hamberder_name: hamberderName} = createdHamberder;
-    // console.log(id, hamberderName)
-    // let berderBoxHtml = berderStorageEl.innerHTML;
-    // const newHamberderEl = `
-    //     <div class="hamberder ${id}">
-    //         <p>${hamberderName}</p>
-    //         <button id=${id}>Devour!</button>
-    //     </div>`
-    // berderBoxHtml = berderBoxHtml + newHamberderEl;
-    // berderStorageEl.innerHTML = berderBoxHtml;
-// }
 
 function startHamberderBtn(){
     createBtnEl.addEventListener("click", async function(){
@@ -89,7 +78,7 @@ function startHamberderBtn(){
         try {
             const {data} = await axios.post('/api/hamberder',{hamberderName});
             // console.log(response);
-            displayHamberders();
+            // displayHamberders();
           } catch (error) {
             console.error(error);
           }
@@ -101,3 +90,14 @@ function getHamberderName(){
     return hamberderName;
 }
 
+    // const {id, hamberder_name: hamberderName} = createdHamberder;
+    // console.log(id, hamberderName)
+    // let berderBoxHtml = berderStorageEl.innerHTML;
+    // const newHamberderEl = `
+    //     <div class="hamberder ${id}">
+    //         <p>${hamberderName}</p>
+    //         <button id=${id}>Devour!</button>
+    //     </div>`
+    // berderBoxHtml = berderBoxHtml + newHamberderEl;
+    // berderStorageEl.innerHTML = berderBoxHtml;
+// }
