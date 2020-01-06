@@ -41,7 +41,7 @@ async function displayHamberders(){
         console.log("Error starting event listeners for devour btns: ", err)
     }
 }
-// displayHamberders();
+displayHamberders();
 
 async function createHamberder(){
     await startHamberderBtn();
@@ -78,7 +78,7 @@ function startHamberderBtn(){
         try {
             const {data} = await axios.post('/api/hamberder',{hamberderName});
             // console.log(response);
-            // displayHamberders();
+            displayHamberders();
           } catch (error) {
             console.error(error);
           }
