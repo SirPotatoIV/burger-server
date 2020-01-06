@@ -5,3 +5,18 @@ h1 {
 .hamberder{
     border: black solid 2px;
 }
+
+#all-the-hamberders{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 10% 80% 10%;
+}
+
+#berder-storage{
+    grid-column: 1/2;
+    grid-row: 2/3;
+}
+#devoured-berders{
+    grid-column: 2/3;
+    grid-row: 2/3;
+}
