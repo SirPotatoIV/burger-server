@@ -4,11 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Good Berder</title>
     <link rel="stylesheet" href="/styles/style.css">
 </head>
 <body>
-    <h1>Welcome to Goodberder, Home of the Goodberder!</h1>
+    <div id="container">
+        <header>
+            <img src="http://placehold.it/200x200" alt="picture of a hamburger">
+            <h1>Welcome to Goodberder, Home of the Goodberder!</h1>
+        </header>
+        <section id="berder-storage">
+            <!-- berders will be displayed here -->
+        </section>
+        <section id="user-input">
+            <form>
+                <!-- https://www.w3schools.com/html/tryit.asp?filename=tryhtml_elem_textarea -->
+                <textarea name="berder-ingredients" id="berder-box" cols="30" rows="10"></textarea>
+                <input type="button" value="Create Berder"/>
+                <p>Enter a Berder you want to eat. Click "Create Berder" when done.</p>
+            </form>
+        </section>
+    </div>
 
     <script src="/javascripts/index.js"></script>
 </body>
