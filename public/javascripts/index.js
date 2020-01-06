@@ -7,10 +7,22 @@ async function createHamberder(){
 }
 createHamberder();
 
-async function displayHamberders(createdHamberder){
+async function displayHamberders(){
     try{
+        let allTheHamberdersHtml = ""
         const {data: allHamberders} = await axios.get("/api/hamberder")
         console.log(allHamberders)
+        for(let i=0; i < allHamberders.length; i++){
+            const {id, hamberder_name: hamberderName} = allHamberders[i]
+            console.log(id, hamberderName)
+            const hamberderHtml = `
+                <div class="hamberder ${id}">
+                    ${id}: ${hamberderName}
+                    <button id=${id}>Devour!</button>
+                </div>`
+            allTheHamberdersHtml += hamberderHtml;
+        }
+        berderStorageEl.innerHTML = allTheHamberdersHtml
     }
     catch(err){
         console.log("Error calling backend to get all the hamberders: ", err);
