@@ -1,0 +1,29 @@
+{
+  "name": "burger-server",
+  "version": "1.0.0",
+  "description": "Homework assignment to create a fullstack app.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SirPotatoIV/burger-server.git"
+  },
+  "author": "Jake O'Toole",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SirPotatoIV/burger-server/issues"
+  },
+  "homepage": "https://github.com/SirPotatoIV/burger-server#readme",
+  "devDependencies": {
+    "sequelize-cli": "^5.5.1"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "mysql2": "^2.1.0",
+    "path": "^0.12.7",
+    "sequelize": "^5.21.3"
+  }
+}
