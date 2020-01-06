@@ -1,36 +1,61 @@
 const createBtnEl = document.getElementById("create-btn");
 const berderBoxEl = document.getElementById("berder-box");
 const berderStorageEl = document.getElementById("berder-storage");
-
-async function createHamberder(){
-    await startHamberderBtn()
-}
-createHamberder();
+const devouredberdersEl = document.getElementById("devoured-berders");
 
 async function displayHamberders(){
     try{
-        let allTheHamberdersHtml = ""
+        let allTheHamberdersHtml = "";
+        let allTheDevouredHambersHtml = "";
         const {data: allHamberders} = await axios.get("/api/hamberder")
         console.log(allHamberders)
         for(let i=0; i < allHamberders.length; i++){
-            const {id, hamberder_name: hamberderName} = allHamberders[i]
-            console.log(id, hamberderName)
-            const hamberderHtml = `
-                <div class="hamberder ${id}">
-                    ${id}: ${hamberderName}
-                    <button id=${id}>Devour!</button>
-                </div>`
-            allTheHamberdersHtml += hamberderHtml;
+            const {id, hamberder_name: hamberderName, devoured} = allHamberders[i]
+            if(devoured){
+                const hamberderHtml = `
+                    <div class="hamberder ${id}">
+                        ${id}: ${hamberderName}
+                    </div>`
+                allTheDevouredHambersHtml += devouredHamberderHtml;            
+            }else{
+                const devouredHamberderHtml = `
+                    <div class="hamberder ${id}">
+                        ${id}: ${hamberderName}
+                        <button id=${id} class="devour-btn">Devour!</button>
+                    </div>`
+                allTheHamberdersHtml += devouredHamberderHtml;
+            }
         }
-        berderStorageEl.innerHTML = allTheHamberdersHtml
+        berderStorageEl.innerHTML = allTheHamberdersHtml;
+        devouredberdersEl.innerHTML = allTheDevouredHambersHtml;
     }
     catch(err){
         console.log("Error calling backend to get all the hamberders: ", err);
     }
+    try{
+        await startDevourBtns()
+    }
+    catch(err){
+        console.log("Error starting event listeners for devour btns: ", err)
+    }
 }
 displayHamberders();
-    
-    
+
+async function createHamberder(){
+    await startHamberderBtn();
+}
+createHamberder(); 
+
+function startDevourBtns(){
+    const devourBtnEls = document.querySelectorAll(".devour-btn")
+    console.log(devourBtnEls)
+    for(let i=0; i < devourBtnEls.length; i++){
+        devourBtnEls[i].addEventListener("click", function(){
+            const hamberderId = event.target.id;
+            console.log(`Devour Btn ${hamberderId} Clicked!`)
+        })
+    }
+}
     // const {id, hamberder_name: hamberderName} = createdHamberder;
     // console.log(id, hamberderName)
     // let berderBoxHtml = berderStorageEl.innerHTML;
