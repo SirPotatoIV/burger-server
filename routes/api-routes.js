@@ -7,7 +7,6 @@ module.exports = function(app){
     app.get("/api/hamberder", async function(req,res){
         try{
             const allHamberders = await db.Hamberders.findAll()
-            // console.log(allHamberders)
             res.json(allHamberders)
         }
         catch(err){
@@ -16,7 +15,6 @@ module.exports = function(app){
     })
     
     app.post("/api/hamberder", async function(req, res){
-        // console.log(req.body)
         const {hamberderName} = req.body;
         try{
             const newHamberder = await db.Hamberders.create({hamberder_name: hamberderName})
@@ -28,11 +26,9 @@ module.exports = function(app){
     })
 
     app.put("/api/hamberder/:id", async function(req, res){
-        // console.log(req.body)
         const hamberderToDevour = req.params.id;
         try{
             const hamberderDevoured = await db.Hamberders.update({devoured: true},{where:{id: hamberderToDevour}})
-            console.log(hamberderDevoured)
             res.json(hamberderDevoured)
         }
         catch(err){

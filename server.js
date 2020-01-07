@@ -1,6 +1,7 @@
+// Generated with Sequelize-CLI
 const db = require("./models");
 const express = require("express");
-// db.Todo.create({task: "Survive"});
+
 // Sets up the Express App
 // =============================================================
 const app = express();
