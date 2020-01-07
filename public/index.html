@@ -5,16 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Good Berder</title>
+    <!-- https://cdnjs.com/libraries/meyer-reset -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css">
     <link rel="stylesheet" href="/styles/style.css">
 </head>
 <body>
     <div id="container">
-        <header>
-            <!-- <img src="https://placehold.it/200x200" alt="picture of a hamburger"> -->
+        <header id= "header">
             <h1>Welcome to Goodberder, Home of the Goodberder!</h1>
+            <!-- https://www.svgrepo.com/svg/30316/hamburger -->
+            <!-- Photo by amirali mirhashemian on Unsplash -->
+            <img src="images\amirali-mirhashemian-sc5sTPMrVfk-unsplash.jpg" alt="cartoon image of a hamburger"/>
+            <p id="tiny">Photo by amirali mirhashemian on Unsplash</p =>
         </header>
         <section id="all-the-hamberders">
             <div id="berder-storage">
+                <i class="fas fa-hamburger"></i>
                 <!-- berders will be displayed here -->
             </div>
             <div id="devoured-berders">
@@ -22,9 +28,9 @@
             </div>
         </section>
         <section id="user-input">
-            <form>
+            <form id="flex-it">
                 <!-- https://www.w3schools.com/html/tryit.asp?filename=tryhtml_elem_textarea -->
-                <textarea name="berder-ingredients" id="berder-box" cols="30" rows="10">Enter hamberder name here ...</textarea>
+                <textarea name="berder-ingredients" id="berder-box" cols="30" rows="5">Enter hamberder name here ...</textarea>
                 <input id="create-btn" type="submit" value="Create Berder"/>
                 <p>Enter a Berder you want to eat. Click "Create Berder" when done.</p>
             </form>
