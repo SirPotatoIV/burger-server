@@ -6,6 +6,9 @@ Web app allows you to write the name of a burger and save it. If you go back to 
 
 Every burger creation results in a post to the backend. The backend then creates a new row in the database. The backend generates html for displaying the burgers. When devour is clicked a put occurs, which results in the backend updating the corresponding row to indicate the burger was devoured. The HTML is regenerated giving the burger div a new class and removing the button.
 
+## Deployed App
+https://good-berder.herokuapp.com/
+
 ## Images
 GIF demonstrating the Burger Server
 ![animation of Burger Server being used](./public/images/burger_server.gif)
